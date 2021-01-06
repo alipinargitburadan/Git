@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="demo"></p>
+<input id="text1" type="text"> 
+<input id="text2" type="text"> 
+
+<button id="btn1" onclick="fonkUzerindekiniDonder(this.id)" value="+">+</button>
+<button id="btn2" onclick="fonkUzerindekiniDonder(this.id)" value="-">-</button>
+<button id="btn3" onclick="fonkUzerindekiniDonder(this.id)" value="x">x</button>
+<button id="btn4" onclick="fonkUzerindekiniDonder(this.id)" value=":">:</button>
+
+<script>
+
+
+var sonuc;
+function fonkUzerindekiniDonder(parametre)
+{
+    var sayi1 = document.getElementById("text1").value;
+    var sayi2 = document.getElementById("text2").value;
+    
+    var islem = document.getElementById(parametre).value;
+    sonuc = fonkDortIslem(sayi1,sayi2,islem);
+    document.getElementById("demo").innerHTML = sonuc;
+
+    console.log(sayi1);
+    console.log(sayi2);
+    console.log(islem);
+    console.log(sonuc);
+  
+}
+function fonkDortIslem(sayi1 , sayi2 , islem)
+{
+    if(islem =="+")
+return parseFloat(sayi1)+parseFloat(sayi2);
+    else if(islem =="-")
+return sayi1-sayi2;
+    else if(islem =="x")
+return sayi1*sayi2;
+    else if(islem ==":")
+    {
+        if(sayi2==0)
+            return "hata";
+        else
+            return sayi1/sayi2;
+    }
+}
+</script>
+
+</body>
+</html>
